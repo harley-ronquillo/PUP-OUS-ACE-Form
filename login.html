@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <link rel="stylesheet" href="css/registration.css">
+    <!-- Box Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- Navbar -->
+    <header>
+      <div class="logo-container">
+          <a class="logo" href="https://www.pup.edu.ph/">
+              <img src="img/PUPLogo.png" alt="PUP Logo">
+          </a>
+      </div>
+      <div class="titles-container">
+          <h1 id="titlepup">Polytechnic University of the Philippines</h1>
+          <h2 id="titleous">Open University System</h2>
+      </div>
+  </header>
+  
+  <div class="form-box" id="sign-in">
+    <h1 id="title">Sign In</h1>
+    <form id="signin-form" name="ACE Form" method="post" action="https://script.google.com/macros/s/AKfycbyvVgRJCyZmbkVqRCyClzBdU73mER1WvwBQjkTFYih6rS-WEoMD64n98j6c9VpsYnWY/exec">
+        <div class="input-group">
+            <!-- studentid -->
+            <div class="input-field">
+                <input type="text" name="studentid" id="studentid" placeholder="Student ID" required>
+            </div>
+            <!-- password -->
+            <div class="input-field">
+                <input type="password" name="password" id="password" placeholder="Password" required>
+            </div>
+        </div>
+        <div class="button-container">
+            <br>
+            <button type="submit" class="submit-btn" name="signin">Sign In</button>
+        </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('signin-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Fetch the form data
+        const formData = new FormData(event.target);
+
+        // Make a POST request to your Google Apps Script URL
+        fetch('https://script.google.com/macros/s/AKfycby72a4l5GJh-OiEr9plfqhqL2jsYIupGDFmuyNDd9nKJTJTMFDyCkDpyDqzzuOfg1vT/exec', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.result === 'success' && data.redirectUrl) {
+                // Redirect to the specified URL
+                window.location.href = "https://harley-ronquillo.github.io/FormPage/?fbclid=IwAR2V75NMq6zQeXnRI6B0o-_wjf4Vn-gjRyYAm5J9th2rW8jG3751IMynbLU" + data.redirectUrl;
+            } else {
+                // Handle error or display message
+                console.log('Error:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+  </script>
+</body>
+</html>
