@@ -39,7 +39,7 @@ Here are some screenshots for our website.
             <br />
             <p align="center">Applicant Info Page</p></td>
         
-    </tr>    
+       
 </table> 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
