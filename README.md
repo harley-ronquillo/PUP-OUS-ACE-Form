@@ -23,7 +23,7 @@ Our website is dedicated exclusively to Polytechnic University of the Philippine
 Here are some screenshots for our website.
 
 <table>
-   <tr>
+
         <td>
             <img src="index.jpeg" alt="Homepage" />
             <br />
